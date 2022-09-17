@@ -1,0 +1,17 @@
+﻿@model Post
+<form method="post" asp-controller="Post" asp-action="Edit">
+
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input asp-for="Title" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Body</label>
+    <textarea asp-for="Body" class="form-control"></textarea>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary mb-3">Publish</button>
+  <button type="reset" class="btn btn-dark mb-3">Reset</button>
+</form>

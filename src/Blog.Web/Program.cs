@@ -1,18 +1,16 @@
+using Blog.Web.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<BlogDbContext>(options=>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-else
-{
-    app.UseDeveloperExceptionPage();
-}
+
+app.UseDeveloperExceptionPage();
+
 
 //app.UseHttpsRedirection();
 

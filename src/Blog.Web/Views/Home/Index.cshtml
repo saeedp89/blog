@@ -1,1 +1,17 @@
-﻿<h2>Home Page!</h2>
+﻿@model ICollection<Post>
+<h2>Home Page!</h2>
+@if (Model.Any())
+{
+    @foreach (var post in Model)
+    {
+        <h2>@post.Title</h2>
+        <p>@post.Body</p>
+        <p class="small">@post.CreatedAt.ToShortDateString()</p>
+        <a href="/posts/eidt/@post.Id">more</a>
+        <hr />
+    }
+}
+else
+{
+    <h2>No Post published yet</h2>
+}
